@@ -33,22 +33,22 @@
         <div class="formcontainer">
           <div class="form">
             <h2>Zarezerwuj stolik on-line</h2>
-            <div class="middle-form">
+            <form action="./rezerwacja.php" class="middle-form" method="post">
               <p>Data (format rrrr-mm-dd):</p>
-              <input type="text" />
+              <input type="text" name="date" />
               <p>Ile osób?:</p>
-              <input type="text" />
+              <input type="text" name="howManyPersons" />
               <p>Twój numer telefonu:</p>
-              <input type="text" />
+              <input type="text" name="phoneNumber" />
               <div class="checkboxcontainer">
                 <input type="checkbox" />
                 <p>Zgadzam się na przetwarzanie moich danych osobowych</p>
               </div>
               <div class="buttonscontainer">
-                <button>WYCZYŚĆ</button>
-                <button>REZERWUJ</button>
+                <input type="reset" class="button"></input>
+                <input class="button" type="submit"></input>
               </div>
-            </div>
+            </form>
           </div>
         </div>
         <footer class="footer">

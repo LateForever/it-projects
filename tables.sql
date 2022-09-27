@@ -1,37 +1,37 @@
-DROP DATABASE baza;
+DROP DATABASE IF EXISTS baza;
 
 CREATE DATABASE baza;
 
 USE baza;
 
 CREATE TABLE lokale (
-  id INTEGER PRIMARY KEY,
-  nazwa TEXT,
-  miasto TEXT,
-  ulica TEXT,
-  numer INTEGER
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  nazwa TEXT NOT NULL,
+  miasto TEXT NOT NULL,
+  ulica TEXT NOT NULL,
+  numer INTEGER NOT NULL
 );
 
 CREATE TABLE dania (
-  id INTEGER PRIMARY KEY,
-  typ INTEGER ,
-  nazwa TEXT,
-  cena INTEGER 
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  typ INTEGER NOT NULL,
+  nazwa TEXT NOT NULL,
+  cena INTEGER NOT NULL
 );
 
 CREATE TABLE rezerwacje (
-    id INTEGER PRIMARY KEY,
-    nr_stolika INTEGER ,
-    data_rez DATE,
-    liczba_osob INTEGER ,
-    telefon TEXT
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    nr_stolika INTEGER,
+    data_rez DATE NOT NULL,
+    liczba_osob INTEGER NOT NULL,
+    telefon TEXT NOT NULL
 );
 
 CREATE TABLE pracownicy (
-    id INTEGER PRIMARY KEY,
-    imie TEXT,
-    nazwisko TEXT,
-    stanowisko INTEGER 
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    imie TEXT NOT NULL,
+    nazwisko TEXT NOT NULL,
+    stanowisko INTEGER NOT NULL
 )
 
 
