@@ -21,11 +21,26 @@
         <div class="rightcontainer">
           <div class="rightcontainer-box">
             <h2>U nas dobrze zjesz</h2>
-            <ul>
-              <li>1. Obiady do 40zł</li>
-              <li>2. Przekąski od 10zł</li>
-              <li>3. Kolacje od 20zł</li>
-            </ul>
+            <ol>
+            <?php
+            $connection = mysqli_connect('localhost', 'root', '', 'baza');
+            if($connection === false) {
+                die("ERROR: Could not connect. " . mysqli_connect_error());
+            }
+
+            $sql = "SELECT * FROM dania GROUP BY cena DESC LIMIT 3";
+            $result = mysqli_query($connection, $sql);
+
+            if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+                echo "<li>" . $row["nazwa"] . " - " . $row["cena"] . " zł</li>";
+              } 
+            } else {
+              echo "0 results";
+            }
+            mysqli_close($connection);
+            ?>
+            </ol>
           </div>
         </div>
       </div>
