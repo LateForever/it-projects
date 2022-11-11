@@ -1,0 +1,67 @@
+ZAPYTANIE 1)
+
+
+
+SELECT * FROM RESERVATION
+WHERE reservation_date = CURRENT_DATE
+
+
+
+ZAPYTANIE 2)
+
+
+
+SELECT * FROM local_desks
+WHERE busy = 'wolny'
+
+
+
+
+ZAPYTANIE 3)
+
+
+
+
+SELECT * FROM local_desks
+WHERE busy = 'wolny' AND local_id = 1
+
+
+
+
+ZAPYTANIE 4)
+
+
+
+SELECT w.name, w.surname, w.email, w.pesel, w.employment_day, w.hired_to, wr.worker_role, la.city, la.street, la.post_code, la.building_number FROM worker as w
+LEFT JOIN worker_role as wr ON w.worker_role_id = wr.id
+LEFT JOIN local ON w.local_id = local.id
+LEFT JOIN local_address as la ON local.local_address_id = la.id
+
+
+
+ZAPYTANIE 5)
+
+
+
+
+SELECT * FROM WORKER
+WHERE employment_day IS NULL
+
+
+
+
+ZAPYTANIE 6)
+
+
+
+SELECT worker_id, w.name, w.surname, w.email, w.pesel, w.employment_day, w.hired_to, COUNT(worker_id) FROM WORKER_LOCALS
+LEFT JOIN WORKER AS W ON w.id = worker_id
+GROUP BY worker_id, w.name, w.surname, w.email, w.pesel, w.employment_day, w.hired_to
+HAVING (COUNT(worker_id) > 1)
+
+
+
+ZAPYTANIE 7)
+
+SELECT * FROM LOCAL
+CROSS JOIN WORKER

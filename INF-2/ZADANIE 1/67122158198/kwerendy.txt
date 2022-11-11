@@ -1,0 +1,23 @@
+KW1:
+    USE wedkowanie;
+
+    SELECT id, nazwa, wystepowanie FROM Ryby
+    WHERE style_zycia = 1;
+
+KW2:
+    USE wedkowanie;
+
+    SELECT Ryby_id, wymiar_ochronny FROM Okres_ochronny
+    WHERE wymiar_ochronny < 30;
+KW3:
+    USE wedkowanie;
+
+    SELECT nazwa, Lowisko.akwen, Lowisko.wojewodztwo FROM Ryby
+    LEFT JOIN Lowisko ON Ryby.id = Lowisko.Ryby_id
+    WHERE Lowisko.rodzaj = 3;
+KW4:
+    USE wedkowanie;
+
+    ALTER TABLE Ryby
+    ADD dobowy_limit TINYINT;
+
